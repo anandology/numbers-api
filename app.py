@@ -85,7 +85,7 @@ def fibs():
     numbers = numb.fibs(a, b, n)
 
     if request.args.get("format") == "json":
-        return jsonify({"result": numbers})
+        return jsonify({"result": list(numbers)})
     else:
         return text_response(numbers)
 

@@ -4,6 +4,13 @@ Simple API to work with numbers. Created to use an example of teaching how to wo
 
 ## The API
 
+### Add
+
+```
+$ curl 'https://numbers.apps.pipal.in/add?a=3&b=4'
+7
+```
+
 ### Fibs
 
 The Fibs API generates a sequence of fibbonacci numbers.
@@ -39,4 +46,24 @@ $ curl -i https://numbers.apps.pipal.in/fibs
 21
 34
 55
+```
+
+### Product
+
+```
+$ curl \
+    -H 'content-type: application/json' \
+    -d '{"numbers": [5, 4, 3, 2, 1]}' \
+    https://numbers.apps.pipal.in/product
+{"result":120}
+```
+
+### Sort
+
+```
+$ curl \
+    -H 'content-type: application/json' \
+    -d '{"numbers": [5, 4, 3, 2, 1]}' \
+    https://numbers.apps.pipal.in/sort
+{"result":[1,2,3,4,5]}
 ```

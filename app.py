@@ -42,8 +42,21 @@ HOME = """
     Simple API to work with numbers.
     </p>
 
+    <h2>Add</h2>
+    <p>API to add two numbers.<p>
+
+    <p>Example:</p>
+    <a href="/add?a=3&b=4">/add?a=3&b=4</a>
+
+    <h2>Fibs</h2>
+
+    <p>Generates fibonacci numbers.</p>
+
+    <a href="/fibs?a=3&b=4&n=10">/fibs?a=3&b=4&n=10</a>
+
+    <h2>Documentation</h2>
     <p>
-    See <a href="https://github.com/anandology/numbers-api">Github repo</a> to know how to use the API.
+    See <a href="https://github.com/anandology/numbers-api">Github repo</a> to know more details about the API.
     </p>
 </body>
 </html>

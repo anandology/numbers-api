@@ -107,5 +107,39 @@ def _sort():
     result = sorted(d['numbers'])
     return jsonify({"result": result})
 
+_store = {}
+
+@app.route("/store")
+def list_values():
+    return jsonify(_store)
+
+def check_token():
+    auth = request.headers.get("Authorization", "")
+    return auth.lower() == "bearer abcd1234"
+
+@app.route("/store/<name>", methods=["PUT"])
+def put_value(name):
+    if not check_token():
+        return make_response(jsonify({"error": "forbidden"}), 403)
+    value = request.json['value']
+    if isinstance(value, int):
+        _store[name] = value
+    return jsonify({"ok": True})
+
+@app.route("/store/<name>", methods=["DELETE"])
+def delete_value(name):
+    if not check_token():
+        return make_response(jsonify({"error": "forbidden"}), 403)
+
+    _store.pop(name, None)
+    return jsonify({"ok": True})
+
+@app.route("/store/<name>", methods=["GET"])
+def get_value(name):
+    if name not in _store:
+        return make_response(jsonify({"error": "not-found"}), 404)
+    value = _store[name]
+    return jsonify({"value": value})
+
 if __name__ == "__main__":
     app.run()

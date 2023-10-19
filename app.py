@@ -83,7 +83,11 @@ def fibs():
     b = get_int_param("b", 1)
     n = get_int_param("n", 10)
     numbers = numb.fibs(a, b, n)
-    return text_response(numbers)
+
+    if request.args.get("format") == "json":
+        return jsonify({"result": numbers})
+    else:
+        return text_response(numbers)
 
 @app.route("/product", methods=["POST"])
 def product():

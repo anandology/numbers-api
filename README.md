@@ -87,3 +87,47 @@ $ curl \
     https://numbers.apps.pipal.in/sort
 {"result":[1,2,3,4,5]}
 ```
+
+### Store
+
+Store API provides an interface to store numbers with a name.
+
+**List entries in the store**
+
+```
+GET /store
+```
+
+Example:
+
+```
+$ curl https://numbers.apps.pipal.in/store
+{"x": 42, "y": 5}
+```
+
+**Get a value**
+
+```
+GET /store/<name>
+```
+
+Example:
+
+```
+$ curl https://numbers.apps.pipal.in/store/x
+{"value": 42}
+```
+
+**Set a value**
+
+To set a value, we need to authenticate with API token. The API token is `abcd1234`.
+
+```
+$ curl \
+    -H 'Authorization: Bearer abcd1234' \
+    -H 'Content-type: application/json' \
+    -d '{"value": 45}'
+    https://numbers.apps.pipal.in/store/x
+{"ok": true}
+```
+

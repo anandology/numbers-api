@@ -15,6 +15,8 @@ $ curl 'https://numbers.apps.pipal.in/add?a=3&b=4'
 
 The Fibs API generates a sequence of fibbonacci numbers.
 
+The response is plain text.
+
 **HTTP Method**
 
 GET
@@ -46,6 +48,24 @@ $ curl -i https://numbers.apps.pipal.in/fibs
 21
 34
 55
+```
+
+### Range
+
+Generates a sequence of numbers. The response is in JSON format.
+
+```
+$ curl \
+    -H 'content-type: application/json' \
+    -d '{"start": 1, "stop": 10}' \
+    https://numbers.apps.pipal.in/range
+{"result": [1, 2, 3, 4, 5, 6, 7, 8, 9]}
+
+$ curl \
+    -H 'content-type: application/json' \
+    -d '{"start": 1, "stop": 10, "step": 2}' \
+    https://numbers.apps.pipal.in/range
+{"result": [1, 3, 5, 7, 9]}
 ```
 
 ### Product

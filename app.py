@@ -91,6 +91,16 @@ def product():
     result = numb.product(d['numbers'])
     return jsonify({"result": result})
 
+@app.route("/range", methods=["POST"])
+def _range():
+    d = request.json
+    start = d.get("start", 0)
+    stop = d.get("stop", 0)
+    step = d.get("step", 1)
+
+    result = list(range(start, stop, step))
+    return jsonify({"result": result})
+
 @app.route("/sort", methods=["POST"])
 def _sort():
     d = request.json

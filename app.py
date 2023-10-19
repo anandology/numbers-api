@@ -27,6 +27,32 @@ def text_response(value):
     response.mimetype = "text/plain"
     return response
 
+HOME = """
+<!doctype html>
+<html>
+<head>
+  <title>Numbers API</title>
+  <style type="text/css">
+
+  </style>
+</head>
+<body>
+    <h1>Numbers API</h1>
+    <p>
+    Simple API to work with numbers.
+    </p>
+
+    <p>
+    See <a href="https://github.com/anandology/numbers-api">Github repo</a> to know how to use the API.
+    </p>
+</body>
+</html>
+"""
+
+@app.route("/")
+def home():
+    return HOME
+
 @app.route("/add")
 def add():
     """Adds two numbers.
